@@ -31,5 +31,6 @@ Email:Abel_Tseng@163.com
 
 #### 请可乐喝咖啡
 
-![1584604015905](C:\Users\Abel\AppData\Roaming\Typora\typora-user-images\1584604022765.png)
 
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0319/154817_f378090a_2062616.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0319/154831_106614db_2062616.png "屏幕截图.png")
