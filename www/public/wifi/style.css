@@ -1,0 +1,118 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+*{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html, body {
+    min-height: 100%;
+}
+
+.ui-blocker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.ui-blocker .ui-blocker-wrapper {
+    position: absolute;
+    height: 48px;
+    width: 48px;
+    left: 50%;
+    top: 50%;
+    margin: -24px 0 0 -24px;
+    background-color: #ccc;
+    opacity: 0.8;
+    border-radius: 4px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.ui-blocker .ui-blocker-spinner {
+    background-image: url(/public/images/loading1.gif);
+    height: 32px;
+    width: 32px;
+    margin: auto;
+}
+body {
+    background-color: #f0eff5;
+    padding: 10px;
+    font-family: Helvetica, sans-serif;
+}
+
+.pic {
+    margin-top: 10px;
+}
+
+.pic > div {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    margin: auto;
+}
+
+.tips {
+    margin: 20px auto;
+    line-height: 30px;
+    text-align: center;
+}
+
+.action {
+    margin-top:20px;
+    background-color: #06be04;
+    border-radius: 4px;
+    height: 40px;
+    text-align: center;
+    color: white;
+    line-height: 40px;
+    font-size: 18px;
+}
+
+.wifi {
+    background-image: url(/public/images/wifi.png)
+}
+

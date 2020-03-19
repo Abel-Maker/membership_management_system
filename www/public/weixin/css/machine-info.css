@@ -1,0 +1,66 @@
+* {
+    font-size: 14px;
+    color: #222;
+}
+
+.weui-cells__tips, .weui-cells__title{
+    font-size: 12px;
+}
+
+#content {
+    margin-bottom: 50px;
+    padding: 0 15px;
+}
+
+#content.edit {
+    margin-top: 50px;
+}
+
+span.checked {
+    color: #06a7e2;
+}
+
+#submit, #repeater-submit {
+    height: 40px;
+    line-height: 40px;
+    margin-top: 10px;
+}
+
+#repeater-submit {
+    margin: 10px 15px 0;
+}
+
+.weui-input[data-toggle="date"] {
+    width: 70px;
+}
+
+.weui-input[type="number"] {
+    width: 50px;
+}
+
+.require:before {
+    content: '*';
+    color: red;
+}
+
+.weui-bar__item.back {
+    flex: .3;
+}
+
+.weui-navbar + .weui-tab__bd {
+    padding-top: 30px;
+}
+
+.del-machine {
+    background-color: #dc3545;
+}
+
+.weui-label {
+    max-width: 200px;
+    width: 150px !important;
+}
+
+.scanCode {
+    display: none;
+    font-size: 16px;
+}

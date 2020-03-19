@@ -1,0 +1,8 @@
+.edui-button.edui-for-xiumi-connect .edui-button-wrap .edui-button-body .edui-icon {
+    background-image: url("/public/images/admin/xiumi.jpg") !important;
+    background-size: contain;
+}
+
+#edui_fixedlayer {
+  z-index: 2222 !important;
+}

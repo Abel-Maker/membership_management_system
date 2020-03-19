@@ -1,0 +1,105 @@
+<style type="text/css">
+  .text-box{
+    width: 200px;
+    overflow: auto;
+    border: 1px dotted #bdbdbd;
+    font-size: 10px;
+  }
+  .log-box{
+    height: 60px;
+  }
+  .remark-box{
+    height: 86px;
+  }
+</style>
+<div class="panel mi-box">
+  <div class="table-tools clearfix ">
+    <div class="float-left">
+      <form method="post" action="{url()}">
+        <div class="form-inline">
+          <div class="form-group">
+            <div class="field">
+              <input type="text" class="input" id="keyword" name="keyword" size="20" value="{$pageMaps.keyword}" placeholder="关键词">
+            </div>
+          </div>
+          <div class="form-button">
+            <button class="button bg-green" type="submit">搜索</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table id="table" class="table table-hover ">
+      <tbody>
+      <tr>
+        <th width="50">序号</th>
+        <th width="100">状态</th>
+        <th width="*">店铺信息</th>
+        <th width="*">客户信息</th>
+        <th width="160">订单信息</th>
+        <th width="*">时间</th>
+        <th width="200">备注</th>
+        <th width="76">操作</th>
+      </tr>
+      <!--if{!empty($list)}-->
+      <!--loop{$list as $vo}-->
+      <tr class="wr">
+        <td>{$vo.rec_id}</td>
+        <td>
+          <div class="button button-little">
+            <img class="js-toggle" data-url="{url('toggle')}" data-id="{$vo.rec_id}" data-field="status" src="/public/images/<?php if($vo['status']) echo 'yes'; else echo 'no';?>.gif" />
+          </div>
+        </td>
+        <td>
+          <span class="text-gray">名称：</span><strong>{high_light($vo.store_name, $keyword)}</strong><br>
+          <span class="text-gray">地址：</span>{high_light($vo.store_address,$keyword)}<br>
+          <span class="text-gray">评分：</span>{$vo.store_score}<br>
+          <span class="text-gray">类型：</span>￥{$vo.store_type}<br>
+        </td>
+        <td>
+          <span class="text-gray">姓名：</span>{$vo.customer_name}<span class="text-red">[{$sex[$vo['customer_gender']]}]</span><br>
+          <span class="text-gray">地址：</span>{high_light($vo.customer_address,$keyword)} <span class="text-red">[{$vo.area_type}]</span><br>
+          <span class="text-gray">年龄段：</span>{$vo.customer_age_field}后 <br>
+          <span class="text-gray">外卖频率：</span>{$vo.frequency_order}次/周<br>
+        </td>
+        <td>
+          <span class="text-gray">外卖名称：</span>{$vo.food_name}<br>
+          <span class="text-gray">外卖数量：</span>{$vo.food_volume}<br>
+          <span class="text-gray">外卖类型：</span>{$vo.food_type}<br>
+          <span class="text-gray">外卖总价：</span>{$vo.order_money}元
+        </td>
+        <td>
+          <span class="text-gray">下单时间：</span>{$vo.order_time}<br>
+          <span class="text-gray">送达时间：</span>{$vo.arrivals_time}<br>
+          <span class="text-gray">时间差：</span>{$vo.diff_time}
+        </td>
+        <td>{$vo.remark}</td>
+        <td>
+          <a class="button bg-blue button-little icon-pencil btn-margin" href="{url('edit',array('rec_id'=>$vo['rec_id']))}" title="修改"></a>
+          <a class="button bg-red button-little icon-trash-o btn-margin js-del" href="{url('del',array('rec_id'=>$vo['rec_id']))}" title="删除"></a>
+<!--          <br>
+          状态：
+          <div class="button button-little">
+            <img class="js-toggle" data-url="{url('toggle')}" data-id="{$vo.rec_id}" data-field="status" src="/public/images/<?php if($vo['status']) echo 'yes'; else echo 'no';?>.gif" />
+          </div>-->
+        </td>
+      </tr>
+      <!--{/loop}-->
+      <!--{else}-->
+      <tr>
+        <td class="text-red">暂时没有记录</td>
+      </tr>
+      <!--{/if}-->
+      </tbody>
+    </table>
+  </div>
+  <div class="panel-foot table-foot clearfix">{$page}</div>
+</div>
+<script>
+    Do.ready('base',function() {
+        $('#table').miTable({
+            deleteUrl: "{url('del')}"
+        });
+    });
+</script>

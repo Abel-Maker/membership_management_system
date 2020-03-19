@@ -1,0 +1,270 @@
+<style type="text/css">
+  .iw_poi_title {
+    color: #CC5522;
+    font-size: 14px;
+    font-weight: bold;
+    overflow: hidden;
+    padding-right: 13px;
+    white-space: nowrap
+  }
+
+  .iw_poi_content {
+    font: 12px arial, sans-serif;
+    overflow: visible;
+    padding-top: 4px;
+    white-space: -moz-pre-wrap;
+    word-wrap: break-word
+  }
+</style>
+<form method="post" class="form-x mi-form form-auto" id="form" action="{url()}">
+  <div class="tab mi-tab">
+    <div class="panel mi-box active">
+      <div class="panel-head">
+        <div class="tab-head"><strong>{$name}外卖信息</strong>
+          <ul class="tab-nav">
+            <li class="active"><a href="#tab-1">商家信息</a></li>
+            <li><a href="#tab-2">客户信息</a></li>
+            <li><a href="#tab-3">外卖信息</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-body">
+        <div class="tab-panel active" id="tab-1">
+          <!--名称-->
+          <div class="form-group">
+            <div class="label">
+              <label><span class="bixu">*</span>店铺名称</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="store_name" size="60" value="{$info.store_name}" datatype="*"
+                     errormsg="请填店铺名称">
+              <div class="input-note">如：周黑鸭</div>
+            </div>
+          </div>
+          <!--地址-->
+          <div class="form-group">
+            <div class="label">
+              <label><span class="bixu">*</span>店铺地址</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="store_address" size="60" value="{$info.store_address}" datatype="*"
+                     errormsg="请填店铺地址">
+              <div class="input-note">请按以下格式填写如：浙江省杭州市江干区徐家埠路**号</div>
+            </div>
+          </div>
+          <!--评分-->
+          <div class="form-group">
+            <div class="label">
+              <label><span class="bixu">*</span>店铺评分</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="store_score" size="5" value="{$info.store_score}" datatype="*"
+                     errormsg="请填店铺评分">分
+              <div class="input-note">如：5</div>
+            </div>
+          </div>
+          <!--类型-->
+          <div class="form-group">
+            <div class="label">
+              <label><span class="bixu">*</span>店铺类型</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="store_type" size="5" value="{$info.store_type}" datatype="*"
+                     errormsg="请填店铺类型">
+              <div class="input-note">如：糕点</div>
+            </div>
+          </div>
+          <!--时间-->
+          <div class="form-group">
+            <div class="label">
+              <label><span class="bixu">*</span>下单时间</label>
+            </div>
+            <div class="field">
+              <!--if{empty($info)}-->
+              <input type="text" class="input js-time" id="order_time" name="order_time" size="15"
+                     value="{$info['order_time']}" placeholder="下单时间">
+              <!--{else}-->
+              <br>
+              {date('Y-m-d H:i:s',$info.order_time)}
+              <!--{/if}-->
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="label">
+              <label><span class="bixu">*</span>送达时间</label>
+            </div>
+            <div class="field">
+              <!--if{empty($info)}-->
+              <input type="text" class="input js-time" id="arrivals_time" name="arrivals_time" size="15"
+                     value="{$info['arrivals_time']}" placeholder="送达时间">
+              <!--{else}-->
+              <br>
+              {date('Y-m-d H:i:s',$info.arrivals_time)}
+              <!--{/if}-->
+            </div>
+          </div>
+        </div>
+        <div class="tab-panel" id="tab-2">
+          <!--客户昵称-->
+          <div class="form-group">
+            <div class="label">
+              <label><span class="bixu">*</span>客户昵称</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="customer_name" size="20" value="{$info.customer_name}" datatype="*"
+                     errormsg="请填客户昵称">
+              <div class="input-note">如：小明</div>
+            </div>
+          </div>
+          <!--客户性别-->
+          <div class="form-group">
+            <div class="label">
+              <label>客户性别</label>
+            </div>
+            <div class="field">
+              <div class="radio">
+                <label>
+                  <!--if{$info.gender=='1'}-->
+                  <input name="gender" type="radio" value="1" checked>
+                  <!--{else}-->
+                  <input name="gender" type="radio" value="1">
+                  <!--{/if}-->
+                  男
+                </label>
+                <label class="margin-left">
+                  <!--if{$info.gender=='2'}-->
+                  <input name="gender" type="radio" value="2" checked>
+                  <!--{else}-->
+                  <input name="gender" type="radio" value="2">
+                  <!--{/if}-->
+                  女
+                </label>
+                <label class="margin-left">
+                  <!--if{$info.gender=='0' || $info.gender==''}-->
+                  <input name="gender" type="radio" value="0" checked>
+                  <!--{else}-->
+                  <input name="gender" type="radio" value="0">
+                  <!--{/if}-->
+                  未知
+                </label>
+              </div>
+            </div>
+          </div>
+          <!--客户年龄段-->
+          <div class="form-group">
+            <div class="label">
+              <label>客户年龄段</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="customer_age_field" size="5" value="{$info.customer_age_field}"
+                     datatype="*" errormsg="请填客户年龄段">后
+              <div class="input-note">如：90</div>
+            </div>
+          </div>
+          <!--客户地址-->
+          <div class="form-group">
+            <div class="label">
+              <label><span class="bixu">*</span>客户地址</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="customer_address" size="60" value="{$info.customer_address}"
+                     datatype="*" errormsg="请填客户地址">
+              <div class="input-note">请按以下格式填写如：浙江省杭州市江干区徐家埠路**号</div>
+            </div>
+          </div>
+          <!--地区类型-->
+          <div class="form-group">
+            <div class="label">
+              <label>地区类型</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="area_type" size="5" value="{$info.area_type}" datatype="*"
+                     errormsg="地区类型">
+              <div class="input-note">如：写字楼</div>
+            </div>
+          </div>
+          <!--点餐频率-->
+          <div class="form-group">
+            <div class="label">
+              <label>点餐频率</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="frequency_order" size="5" value="{$info.frequency_order}"
+                     datatype="*" errormsg="请填客户点餐频率">/周
+              <div class="input-note">如：10</div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-panel" id="tab-3">
+          <!--外卖信息-->
+          <div class="form-group">
+            <div class="label">
+              <label><span class="bixu">*</span>外卖内容</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="food_name" size="60" value="{$info.food_name}" datatype="*"
+                     errormsg="请填外卖内容">
+              <div class="input-note">如：黄焖鸡</div>
+            </div>
+          </div>
+          <!--外卖数量-->
+          <div class="form-group">
+            <div class="label">
+              <label>外卖数量</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="food_volume" size="5" value="{$info.food_volume}" datatype="*"
+                     errormsg="请填外卖数量">份
+              <div class="input-note">如：1</div>
+            </div>
+          </div>
+          <!--外卖类型-->
+          <div class="form-group">
+            <div class="label">
+              <label><span class="bixu">*</span>外卖类型</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="food_type" size="5" value="{$info.food_type}" datatype="*"
+                     errormsg="请填外卖类型">
+              <div class="input-note">如：主食</div>
+            </div>
+          </div>
+          <!--外卖金额-->
+          <div class="form-group">
+            <div class="label">
+              <label><span class="bixu">*</span>外卖金额</label>
+            </div>
+            <div class="field">
+              <input type="text" class="input" name="order_money" size="5" value="{$info.order_money}" datatype="*" errormsg="请填外卖金额">元
+              <div class="input-note">如：20</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="label">
+              <label>其他备注</label>
+            </div>
+            <div class="field">
+              <textarea id="remark" name="remark" cols="80" rows="6" class="input">{html_out($info.remark)}</textarea>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="panel-foot">
+        <div class="form-button">
+          <div id="tips"></div>
+          <input type="hidden" name="rec_id" id="rec_id" type="hidden" value="{$info.rec_id}">
+          <input type="hidden" name="user_id" type="hidden" value="{session('admin_user.user_id')}">
+          <input type="hidden" name="from_url" value="{urlencode($_SERVER['HTTP_REFERER'])}#{$info.rec_id}">
+          <button class="button bg-main" type="submit">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<script>
+    Do.ready('base', function () {
+        //表单综合处理
+        $('#form').miFormPage();
+    });
+</script>

@@ -1,0 +1,225 @@
+<script src="__PUBLIC__/js/chart/chart.js"></script>
+<div class="x-nav">
+            <span class="layui-breadcrumb">
+                <a href="">首页</a>
+                <a href="">财务管理</a>
+                <a>
+                    <cite>财务报表</cite></a>
+            </span>
+  <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()"
+     title="刷新">
+    <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i>
+  </a>
+</div>
+<div class="layui-fluid">
+  <div class="layui-row layui-col-space15">
+
+    <div class="layui-col-sm12 layui-col-md6">
+      <div class="layui-card">
+        <div class="layui-card-header">最近一周新增会员:{$user_num}人</div>
+        <div class="layui-card-body" style="min-height: 280px;">
+          <!--<div id="main1" class="layui-col-sm12" style="height: 300px;"></div>-->
+          <canvas id="user_num_week"></canvas>
+
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-sm12 layui-col-md6">
+      <div class="layui-card">
+        <div class="layui-card-header">最近一月新增会员:{$user_num_month}人</div>
+        <div class="layui-card-body" style="min-height: 280px;">
+          <canvas id="user_num_mon"></canvas>
+
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-sm12 layui-col-md6">
+      <div class="layui-card">
+        <div class="layui-card-header">最近一周营收:{$money_week}元</div>
+        <div class="layui-card-body" style="min-height: 280px;">
+          <canvas id="money_num_week"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-sm12 layui-col-md6">
+      <div class="layui-card">
+        <div class="layui-card-header">最近一月营收:{$money_month}元</div>
+        <div class="layui-card-body" style="min-height: 280px;">
+          <canvas id="money_num_mon"></canvas>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+
+    var data = {$jsonArray};
+    //console.log(data);
+    var config = {
+        type: 'line',
+        data: data,
+        options: {
+            maintainAspectRatio: false,//自适应
+            responsive: true,
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+                callbacks: {
+                    label: function (e) {
+                        return e.yLabel + '元'
+                    }
+                }
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            scales: {
+                xAxes: [{
+                    display: true
+                }],
+                yAxes: [{
+                    display: true,
+                    //坐标轴单位
+                    ticks: {
+                        callback: function (value, index, values) {
+                            return value + '元';
+                        }
+                    }
+                }]
+            }
+        }
+    };
+
+    var dataMon = {$jsonArrayMon};
+
+    var configMon = {
+        type: 'line',
+        data: dataMon,
+        options: {
+            maintainAspectRatio: false,//自适应
+            responsive: true,
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+                callbacks: {
+                    label: function (e) {
+                        return e.yLabel + '元'
+                    }
+                }
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            scales: {
+                xAxes: [{
+                    display: true
+                }],
+                yAxes: [{
+                    display: true,
+                    //坐标轴单位
+                    ticks: {
+                        callback: function (value, index, values) {
+                            return value + '元';
+                        }
+                    }
+                }]
+            }
+        }
+    };
+
+    var userWeek = {$userWeek};
+
+    var configUserWeek  = {
+        type: 'line',
+        data: userWeek,
+        options: {
+            maintainAspectRatio: false,//自适应
+            responsive: true,
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+                callbacks: {
+                    label: function (e) {
+                        return e.yLabel + '个'
+                    }
+                }
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            scales: {
+                xAxes: [{
+                    display: true
+                }],
+                yAxes: [{
+                    display: true,
+                    //坐标轴单位
+                    ticks: {
+                        callback: function (value, index, values) {
+                            return value + '个';
+                        }
+                    }
+                }]
+            }
+        }
+    };
+
+    var userMon = {$userMon};
+
+
+    var configUserMon = {
+        type: 'line',
+        data: userMon,
+        options: {
+            maintainAspectRatio: false,//自适应
+            responsive: true,
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+                callbacks: {
+                    label: function (e) {
+                        return e.yLabel + '个'
+                    }
+                }
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            scales: {
+                xAxes: [{
+                    display: true
+                }],
+                yAxes: [{
+                    display: true,
+                    //坐标轴单位
+                    ticks: {
+                        callback: function (value, index, values) {
+                            return value + '个';
+                        }
+                    }
+                }]
+            }
+        }
+    };
+
+    var ctx = document.getElementById('money_num_week').getContext('2d');
+    window.myLine = new Chart(ctx, config);
+
+    var ctxMon = document.getElementById('money_num_mon').getContext('2d');
+    window.myLine = new Chart(ctxMon, configMon);
+
+    var ctxWeek = document.getElementById('user_num_week').getContext('2d');
+    window.myLine = new Chart(ctxWeek, configUserWeek);
+
+    var ctxUserMon = document.getElementById('user_num_mon').getContext('2d');
+    window.myLine = new Chart(ctxUserMon, configUserMon);
+
+
+
+</script>

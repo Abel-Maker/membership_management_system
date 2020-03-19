@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="renderer" content="webkit">
+  <title>{config('APP_NAME')}</title>
+  <link rel="stylesheet" href="__PUBLIC__/css/pintuer/pintuer.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/admin/style.css">
+  <script src="__PUBLIC__/js/jquery/jquery-1.11.0.min.js"></script>
+  <script src="__PUBLIC__/css/pintuer/pintuer.js"></script>
+  <!--[if lte IE 8]>
+  <script src="__PUBLIC__/js/respond.js"></script>
+  <![endif]-->
+  <script>
+      var miConfig = {
+          //基础配置
+          'baseDir' : '__PUBLIC__/js/',
+          //上传配置
+          'uploadUrl' : "{$_SERVER['PHP_SELF']}?r=main/Upload/upload",
+          'editorUploadUrl' : "{$_SERVER['PHP_SELF']}?r=main/Upload/editor",
+          //sessId 上传用
+          'sessId'  : '{session_id()}'
+      };
+  </script>
+  <script src="__PUBLIC__/js/do.js"></script>
+  <script src="__PUBLIC__/js/admin/config.js"></script>
+</head>
+<body>
+{$__content__}
+</body>
+</html>

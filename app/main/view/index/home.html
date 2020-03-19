@@ -1,0 +1,150 @@
+<div class="layui-fluid">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md12">
+      <div class="layui-card">
+        <div class="layui-card-body ">
+          <blockquote class="layui-elem-quote">欢迎管理员：
+            <span class="x-red">{session('admin_user.username')}({session('admin_user.name')})</span>！上次登录时间:{date('Y-m-d H:i',session('admin_user.last_login_time'))}，登录IP为
+            {session('admin_user.last_login_ip')}({ip_addr(session('admin_user.last_login_ip'))})
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-md12">
+      <div class="layui-card">
+        <div class="layui-card-header">数据统计
+          <span class="layui-badge layui-bg-cyan layuiadmin-badge">月</span>
+        </div>
+        <div class="layui-card-body ">
+          <ul class="layui-row layui-col-space10 layui-this x-admin-carousel x-admin-backlog">
+            <li class="layui-col-md3 layui-col-xs4">
+              <a href="{url('user/index',['t'=>'day'])}" class="x-admin-backlog-body">
+                <h3>会员</h3>
+                <p>
+                  <cite>{$todoList['user']}</cite>
+                </p>
+              </a>
+            </li>
+            <li class="layui-col-md3 layui-col-xs4">
+              <a href="{url('accountlog/index',['t'=>'recharge'])}" class="x-admin-backlog-body">
+                <h3>营收</h3>
+                <p>
+                  <cite>{$todoList['income']}</cite>
+                </p>
+              </a>
+            </li>
+            <li class="layui-col-md3 layui-col-xs4">
+              <a href="{url('accountlog/index',['t'=>'consume'])}" class="x-admin-backlog-body">
+                <h3>充值</h3>
+                <p>
+                  <cite>{$todoList['consume']}</cite>
+                </p>
+              </a>
+            </li>
+            <li class="layui-col-md3 layui-col-xs4">
+              <a href="{url('accountlog/index')}" class="x-admin-backlog-body">
+                <h3>访问</h3>
+                <p>
+                  <cite>{$todoList['visit']}</cite>
+                </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--    <div class="layui-col-sm6 layui-col-md3">
+          <div class="layui-card">
+            <div class="layui-card-header">下载
+              <span class="layui-badge layui-bg-cyan layuiadmin-badge">月</span></div>
+            <div class="layui-card-body  ">
+              <p class="layuiadmin-big-font">33,555</p>
+              <p>新下载
+                <span class="layuiadmin-span-color">10%
+                                        <i class="layui-inline layui-icon layui-icon-face-smile-b"></i></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-sm6 layui-col-md3">
+          <div class="layui-card">
+            <div class="layui-card-header">下载
+              <span class="layui-badge layui-bg-cyan layuiadmin-badge">月</span></div>
+            <div class="layui-card-body ">
+              <p class="layuiadmin-big-font">33,555</p>
+              <p>新下载
+                <span class="layuiadmin-span-color">10%
+                                        <i class="layui-inline layui-icon layui-icon-face-smile-b"></i></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-sm6 layui-col-md3">
+          <div class="layui-card">
+            <div class="layui-card-header">下载
+              <span class="layui-badge layui-bg-cyan layuiadmin-badge">月</span></div>
+            <div class="layui-card-body ">
+              <p class="layuiadmin-big-font">33,555</p>
+              <p>新下载
+                <span class="layuiadmin-span-color">10%
+                                        <i class="layui-inline layui-icon layui-icon-face-smile-b"></i></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="layui-col-sm6 layui-col-md3">
+          <div class="layui-card">
+            <div class="layui-card-header">下载
+              <span class="layui-badge layui-bg-cyan layuiadmin-badge">月</span></div>
+            <div class="layui-card-body ">
+              <p class="layuiadmin-big-font">33,555</p>
+              <p>新下载
+                <span class="layuiadmin-span-color">10%
+                                        <i class="layui-inline layui-icon layui-icon-face-smile-b"></i></span>
+              </p>
+            </div>
+          </div>
+        </div>-->
+    <div class="layui-col-md12">
+      <div class="layui-card">
+        <div class="layui-card-header">系统信息</div>
+        <div class="layui-card-body ">
+          <table class="layui-table">
+            <tbody>
+            <!--loop{$info as $key => $vo}-->
+            <tr>
+              <th>{$key}</th>
+              <td>{$vo}</td>
+            </tr>
+            <!--{/loop}-->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-md12">
+      <div class="layui-card">
+        <div class="layui-card-header">开发团队</div>
+        <div class="layui-card-body ">
+          <table class="layui-table">
+            <tbody>
+            <tr>
+              <th>版权所有</th>
+              <td>来杯可乐不加糖</td>
+            </tr>
+            <tr>
+              <th>开发者</th>
+              <td>来杯可乐不加糖</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <style id="welcome_style"></style>
+    <div class="layui-col-md12">
+      <blockquote class="layui-elem-quote layui-quote-nm">感谢layui,百度Echarts,jquery,本系统由@来杯可乐不加糖 提供技术支持。</blockquote>
+    </div>
+  </div>
+</div>
+</div>

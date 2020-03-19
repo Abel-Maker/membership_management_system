@@ -1,0 +1,194 @@
+@charset "utf-8";
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body[pg="login"] {
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.head {
+    width: 100%;
+    border-bottom: 2px solid #06a7e2;
+    background: #FFF;
+}
+
+.header {
+    max-width: 1280px;
+    height: 80px;
+    background: #FFF;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.headerLogo {
+    margin: 0;
+    float: left;
+    padding: 14px 0 0 40px;
+}
+
+.headerLogo img {
+    height: 50px;
+    border: 0;
+}
+
+.headerServe {
+    position: absolute;
+    top: 20px;
+    right: 44px;
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    color: #999999;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.header span {
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+/*会员中心顶部结束*/
+/*公共组件*/
+.hide {
+    display: none !important;
+}
+
+.loginInput {
+    background: #ffffff;
+    height: 46px;
+    line-height: 46px;
+    vertical-align: middle;
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    color: #252525;
+    text-align: left;
+    outline: none;
+}
+
+.loginBackground {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: -10;
+    width: 100%;
+    min-width: 1024px;
+    min-height: 812px;
+}
+
+.loginArea {
+    position: absolute;
+    /*transform: translate(-50%,-50%);*/
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    width: 350px;
+    /*height: 302px;*/
+    vertical-align: middle;
+    margin-left: -192px;
+    margin-top: -149px;
+    background: #FFF;
+    padding-left: 34px;
+    padding-top: 24px;
+    z-index: 100;
+}
+
+.loginArea_title {
+    font-family: MicrosoftYaHei;
+    font-size: 18px;
+    font-weight: 800;
+    color: #252525;
+}
+
+.loginArea_title .logo-title {
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.loginArea_title a {
+    margin-left: 176px;
+    font-family: MicrosoftYaHei;
+    font-size: 16px;
+    font-weight: 300;
+    color: #06a7e2;
+    text-decoration: none;
+}
+
+.loginArea_centerInput,
+.loginArea_userNameInput,
+.loginArea_passwordInput {
+    border: 1px solid #c5c5c5;
+    border-radius: 2px;
+    width: 318px;
+}
+
+.loginArea_centerInput {
+    background: url(/public/images/admin/inputIcon_center.png);
+    background-repeat: no-repeat;
+    background-position: 20px 13px;
+}
+
+.loginArea_userNameInput {
+    background: url(/public/images/admin/inputIcon_userName.png);
+    background-repeat: no-repeat;
+    background-position: 20px 13px;
+    margin-top: 10px;
+}
+
+.loginArea_passwordInput {
+    background: url(/public/images/admin/inputIcon_password.png);
+    background-repeat: no-repeat;
+    background-position: 20px 13px;
+    margin-top: 10px;
+}
+
+.loginArea_centerInput input,
+.loginArea_userNameInput input,
+.loginArea_passwordInput input {
+    border: none;
+    width: 260px;
+    margin-left: 51px;
+    outline: none;
+}
+
+.loginArea_Tips {
+    height: 26px;
+    line-height: 26px;
+}
+
+.loginArea_button {
+    padding-top: 14px;
+    padding-bottom: 24px;
+}
+
+.loginArea_button button {
+    width: 320px;
+    height: 48px;
+    border: none;
+    border-radius: 2px;
+    background: #06a7e2;
+    color: #FFF;
+    font-size: 18px;
+}
+
+.btnOrange:hover {
+    background: #23b3e7;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    cursor: hand;
+}
+
+.btnOrange:active {
+    background: #01a0da;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+}

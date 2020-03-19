@@ -1,0 +1,358 @@
+<div class="layui-fluid">
+  <div class="layui-row">
+    <form class="layui-form" method="post" id="info" action="#">
+      <div class="layui-form-item">
+        <label class="layui-form-label">会员编号</label>
+        <div class="layui-input-inline" style="width: 30px;">
+          <input type="text" value="{$info.user_id}" class="layui-input" disabled>
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">会员姓名</label>
+        <div class="layui-input-inline" style="width: 60px;">
+          <input type="text" value="{$info.name}" class="layui-input" disabled>
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">账户余额</label>
+        <div class="layui-input-inline" style="width: 60px;">
+          <input type="text" value="{$info.money}" class="layui-input" disabled>
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">剩余次数</label>
+        <div class="layui-input-inline" style="width: 60px;">
+          <input type="text" value="{$info.remain_num}" class="layui-input" disabled>
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">操作类型</label>
+        <div class="layui-input-inline">
+          <select name="cate" id="cate" lay-verify="required" lay-search="" lay-filter="cate">
+            <option value="1">账户充值</option>
+            <option value="2">套餐充值</option>
+            <option value="3">账户扣费</option>
+            <option value="4">套餐扣费</option>
+          </select>
+        </div>
+      </div>
+      <div class="layui-form-item recharge_account">
+        <label class="layui-form-label ">充值金额</label>
+        <div class="layui-input-inline">
+          <input type="text" name="money" id="recharge_account" lay-verify="check|number" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item recharge_count">
+        <label class="layui-form-label ">充值次数</label>
+        <div class="layui-input-inline">
+          <input type="text" name="count" id="recharge_count" lay-verify="check|number" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item consume_account">
+        <label class="layui-form-label ">消费金额</label>
+        <div class="layui-input-inline">
+          <input type="text" name="money" id="consume_account" lay-verify="check|number" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item consume_count">
+        <label class="layui-form-label ">消费次数</label>
+        <div class="layui-input-inline">
+          <input type="text" name="count" id="consume_count" lay-verify="check|number" class="layui-input">
+        </div>
+      </div>
+
+      <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">操作备注</label>
+        <div class="layui-input-block">
+          <textarea name="remark" id="remark" placeholder="请输入备注" class="layui-textarea"></textarea>
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <input type="hidden" name="user_id" id="user_id" value="{$info.user_id}">
+       <!-- <button class="layui-btn" lay-filter="add" lay-submit>-->
+        <a class="layui-btn" onclick="sub()">
+          保存
+        </a>
+        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+
+    layui.use(['form', 'layer'], function () {
+        $ = layui.jquery;
+        var form = layui.form,
+            layer = layui.layer;
+
+
+        form.verify({
+            check: function (value) {
+                /*               var pattern = /[1-9]\d*!/;
+                               var isChecked = pattern.test(value);
+                               console.log('is:'+isChecked);*/
+                if (value < 0) {
+                    return '非法输入！';
+                }
+            }
+        });
+        //初始化
+        var type = $('#cate').val();
+
+        switch (type) {
+            //充值次数
+            case '2':
+                $("#recharge_account").val('');
+                $("#recharge_count").val('');
+                $("#consume_account").val('');
+                $("#consume_count").val('');
+
+                $('.recharge_account').show();
+                $('.recharge_count').show();
+                $('.consume_account').hide();
+                $('.consume_count').hide();
+
+                //状态
+                $("#recharge_count").removeAttr("disabled");
+                $("#consume_account").attr("disabled", "disabled");
+                $("#consume_count").attr("disabled", "disabled");
+
+                //校验
+                $("#recharge_count").attr("lay-verify", "check|number");
+                $("#consume_account").removeAttr("lay-verify");
+                $("#consume_count").removeAttr("lay-verify");
+
+                break;
+            //消费金额
+            case '3':
+                $("#recharge_account").val('');
+                $("#recharge_count").val('');
+                $("#consume_account").val('');
+                $("#consume_count").val('');
+
+                $('.recharge_account').hide();
+                $('.recharge_count').hide();
+                $('.consume_account').show();
+                $('.consume_count').hide();
+
+                //状态
+                $("#recharge_account").attr("disabled", "disabled");
+                $("#recharge_count").attr("disabled", "disabled");
+                $("#consume_account").removeAttr("disabled");
+                $("#consume_count").attr("disabled", "disabled");
+
+                //校验
+                $("#consume_account").attr("lay-verify", "check|number");
+                $("#recharge_account").removeAttr("lay-verify");
+                $("#recharge_count").removeAttr("lay-verify");
+                $("#consume_count").removeAttr("lay-verify");
+
+                break;
+            //消费次数
+            case '4':
+                $("#recharge_account").val('');
+                $("#recharge_count").val('');
+                $("#consume_account").val('');
+                $("#consume_count").val('');
+
+                $('.recharge_account').hide();
+                $('.recharge_count').hide();
+                $('.consume_account').hide();
+                $('.consume_count').show();
+
+                $("#recharge_account").attr("disabled", "disabled");
+                $("#recharge_count").attr("disabled", "disabled");
+                $("#consume_count").removeAttr("disabled");
+                $("#consume_account").attr("disabled", "disabled");
+
+                //校验
+                $("#consume_count").attr("lay-verify", "check|number");
+                $("#recharge_account").removeAttr("lay-verify");
+                $("#recharge_count").removeAttr("lay-verify");
+                $("#consume_account").removeAttr("lay-verify");
+
+                break;
+            //充值金额
+            case '1':
+                $("#recharge_account").val('');
+                $("#recharge_count").val('');
+                $("#consume_account").val('');
+                $("#consume_count").val('');
+
+                //显示
+                $('.recharge_account').show();
+                $('.recharge_count').hide();
+                $('.consume_account').hide();
+                $('.consume_count').hide();
+
+                //状态
+                $("#recharge_count").attr("disabled", "disabled");
+                $("#consume_account").attr("disabled", "disabled");
+                $("#consume_count").attr("disabled", "disabled");
+
+                //校验
+                $("#recharge_count").removeAttr("lay-verify");
+                $("#consume_account").removeAttr("lay-verify");
+                $("#consume_count").removeAttr("lay-verify");
+
+                break;
+            default:
+                $('.recharge_account').hide();
+                $('.recharge_count').hide();
+                $('.consume_account').hide();
+                $('.consume_count').hide();
+                break;
+        }
+        //console.log('type:'+type);
+        form.on('select(cate)', function (data) {
+            switch (data.value) {
+                //充值次数
+                case '2':
+                    $("#recharge_account").val('');
+                    $("#recharge_count").val('');
+                    $("#consume_account").val('');
+                    $("#consume_count").val('');
+
+                    $('.recharge_account').show();
+                    $('.recharge_count').show();
+                    $('.consume_account').hide();
+                    $('.consume_count').hide();
+
+                    //状态
+                    $("#recharge_count").removeAttr("disabled");
+                    $("#consume_account").attr("disabled", "disabled");
+                    $("#consume_count").attr("disabled", "disabled");
+
+                    //校验
+                    $("#recharge_count").attr("lay-verify", "check|number");
+                    $("#consume_account").removeAttr("lay-verify");
+                    $("#consume_count").removeAttr("lay-verify");
+
+                    break;
+                //消费金额
+                case '3':
+                    $("#recharge_account").val('');
+                    $("#recharge_count").val('');
+                    $("#consume_account").val('');
+                    $("#consume_count").val('');
+
+                    $('.recharge_account').hide();
+                    $('.recharge_count').hide();
+                    $('.consume_account').show();
+                    $('.consume_count').hide();
+
+                    //状态
+                    $("#recharge_account").attr("disabled", "disabled");
+                    $("#recharge_count").attr("disabled", "disabled");
+                    $("#consume_account").removeAttr("disabled");
+                    $("#consume_count").attr("disabled", "disabled");
+
+                    //校验
+                    $("#consume_account").attr("lay-verify", "check|number");
+                    $("#recharge_account").removeAttr("lay-verify");
+                    $("#recharge_count").removeAttr("lay-verify");
+                    $("#consume_count").removeAttr("lay-verify");
+
+                    break;
+                //消费次数
+                case '4':
+                    $("#recharge_account").val('');
+                    $("#recharge_count").val('');
+                    $("#consume_account").val('');
+                    $("#consume_count").val('');
+
+                    $('.recharge_account').hide();
+                    $('.recharge_count').hide();
+                    $('.consume_account').hide();
+                    $('.consume_count').show();
+
+                    $("#recharge_account").attr("disabled", "disabled");
+                    $("#recharge_count").attr("disabled", "disabled");
+                    $("#consume_count").removeAttr("disabled");
+                    $("#consume_account").attr("disabled", "disabled");
+
+                    //校验
+                    $("#consume_count").attr("lay-verify", "check|number");
+                    $("#recharge_account").removeAttr("lay-verify");
+                    $("#recharge_count").removeAttr("lay-verify");
+                    $("#consume_account").removeAttr("lay-verify");
+
+                    break;
+                //充值金额
+                case '1':
+                    $("#recharge_account").val('');
+                    $("#recharge_count").val('');
+                    $("#consume_account").val('');
+                    $("#consume_count").val('');
+
+                    //显示
+                    $('.recharge_account').show();
+                    $('.recharge_count').hide();
+                    $('.consume_account').hide();
+                    $('.consume_count').hide();
+
+                    //状态
+                    $("#recharge_count").attr("disabled", "disabled");
+                    $("#consume_account").attr("disabled", "disabled");
+                    $("#consume_count").attr("disabled", "disabled");
+
+                    //校验
+                    $("#recharge_count").removeAttr("lay-verify");
+                    $("#consume_account").removeAttr("lay-verify");
+                    $("#consume_count").removeAttr("lay-verify");
+
+                    break;
+                default:
+                    $('.recharge_account').hide();
+                    $('.recharge_count').hide();
+                    $('.consume_account').hide();
+                    $('.consume_count').hide();
+                    break;
+            }
+        });
+    });
+
+    function sub() {
+
+        var info = $("#info").serialize();
+        console.log("info:"+info);
+
+        $.ajax({
+            url: '{url("user/account")}',
+            data: info,
+
+            type: "post",
+            async: false,
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                if (data.status) {
+                    layer.msg(data.msg, {icon: 6, time: 1000});
+                    //关闭当前frame
+                     xadmin.close();
+                    // 可以对父窗口进行刷新
+                     xadmin.father_reload();
+                } else {
+                    layer.msg(data.msg, {icon: 5, time: 1000});
+                }
+
+            },
+            error: function (data) {
+                layer.msg(data.msg, {icon: 5, time: 1000});
+            }
+        });
+       // return false;
+    }
+
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>

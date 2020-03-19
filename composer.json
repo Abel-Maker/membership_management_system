@@ -1,0 +1,7 @@
+{
+    "require": {
+        "overtrue/wechat": "~4.0",
+        "riverslei/payment": "~3.1",
+        "endroid/qr-code": "^3.2"
+    }
+}

@@ -1,0 +1,27 @@
+body {
+    background-color: #f8f8f8;
+}
+
+.top {
+    background: #06a7e2;
+    height: 120px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing:border-box;
+    color: #fff;
+    font-size: 15px;
+}
+
+.top .avator {
+    font-size: 40px;
+}
+
+.top .info {
+    margin-left: 15px;
+}
+
+.weui-cells {
+    font-size: 15px;
+}

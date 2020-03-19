@@ -1,0 +1,221 @@
+#time_list {
+	padding: 5px 10px;
+	background: #eee;
+}
+#time_list .logis-info {
+	font-size: 15px;
+	margin-bottom: 20px
+}
+#time_list .logis-info p {
+	margin: 15px 0
+}
+#time_list .logis-detail ul li {
+	color: #666;
+	position: relative
+}
+#time_list .logis-detail ul li:first-child p.logis-detail-title {
+	color:#F40
+}
+#time_list .logis-detail ul li:first-child .logis-detail-keynode {
+	border-left:2px solid #8AB5E8
+}
+#time_list .logis-detail ul li:first-child .logis-detail-keynode:after {
+	background:#8AB5E8;
+	border: 2px solid #EEE
+}
+#time_list .logis-detail ul li:first-child .logis-detail-keynode .logis-detail-content {
+	background:#8AB5E8;
+	color: #fff
+}
+#time_list .logis-detail ul li:first-child .logis-detail-keynode .logis-detail-content:after {
+	border-bottom-color:#8AB5E8
+}
+#time_list .logis-detail ul .logis-detail-d {
+	border-left: 2px solid #bdbdbd;
+	padding: 10px 0 10px 25px;
+	margin-left: 25px;
+	position: relative
+}
+#time_list .logis-detail ul .logis-detail-d:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	left: -6px;
+	top: 30px;
+	width: 6px;
+	height: 6px;
+	-webkit-border-radius: 10px;
+	background: #BDBDBD;
+	border: 2px solid #EEE
+}
+#time_list .logis-detail ul .logis-detail-title {
+	width: 40px;
+	padding: 10px 0 10px 4px;
+	text-align: right;
+	font-size: 16px;
+	font-weight:bold;
+}
+#time_list .logis-detail ul .logis-detail-content {
+	display: -webkit-box;
+	position: relative;
+	background: #ddd;
+	padding: 5px 10px;
+	-webkit-border-radius: 2px;
+	font-size: 14px
+}
+#time_list .logis-detail ul .logis-detail-content .logis-detail-content-time {
+	width: 50px;
+	line-height: 25px
+}
+#time_list .logis-detail ul .logis-detail-content .logis-detail-content-detail {
+	-webkit-box-flex: 1;
+	line-height: 25px
+}
+#time_list .logis-detail ul .logis-detail-content:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	left: -10px;
+	top: 18px;
+	border-left: 10px solid #EEE;
+	border-bottom: 10px solid #ddd
+}
+#time_list .logis-detail ul .tody-date {
+	color: #F40
+}
+#time_list .oc-info {
+	margin: 20px 10px;
+	display: -webkit-box
+}
+#time_list .oc-info .oc-info-l {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	margin-right: 10px
+}
+#time_list .oc-info .oc-info-r {
+	-webkit-box-flex: 1
+}
+#time_list .oc-info .oc-info-r h2 {
+	font-weight: 400;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-bottom: 6px
+}
+#time_list .oc-info .oc-info-r .oc-tright {
+	text-align: right
+}
+#time_list .oc-d {
+	margin: 20px 10px;
+	line-height: 28px
+}
+#time_list .oc-d li:nth-child(odd) {
+	margin-top: 6px
+}
+#time_list .oc-s {
+	margin: 20px 10px
+}
+#time_list .oc-s h3 {
+	font-size: 16px;
+	margin-bottom: 6px
+}
+#time_list .oc-s p {
+	line-height: 24px
+}
+#time_list .od-f {
+	padding: 0 10px
+}
+#time_list .od-f .c-form-radio {
+	margin-right: 0
+}
+#time_list .od-f li {
+	margin: 10px auto;
+	font-size: 16px
+}
+#time_list .od-f li:first-child {
+	margin-top: 20px
+}
+#time_list .od-f li:last-child {
+	margin-bottom: 20px;
+	font-size: 14px
+}
+#time_list .od-f label {
+	padding: 5px 0;
+	height: 20px;
+	line-height: 20px;
+	display: -webkit-box
+}
+#time_list .od-f label span {
+	display: block;
+	-webkit-box-flex: 1;
+	text-align: left
+}
+#time_list .od-f label .od-sp {
+	text-align: right
+}
+#time_list .od-f label .c-form-radio {
+	vertical-align: -3px
+}
+#time_list .logis-order {
+	font-size: 15px;
+	padding: 10px 0
+}
+#time_list .mb-ollr {
+	display: -webkit-box;
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid;
+	border-top-width: 0;
+	border-color: #fff #e3e3e3 #d7d7d7;
+	box-shadow: 0 1px 3px rgba(0,0,0,.1);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1);
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px
+}
+#time_list .ol-l {
+	margin-right: 6px
+}
+#time_list .ol-l a {
+	width: 56px;
+	height: 56px;
+	border: 1px #e5e5e5 solid;
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center
+}
+#time_list .ol-l img {
+	max-width: 50px;
+	max-height: 50px
+}
+#time_list .ol-r {
+	-webkit-box-flex: 1;
+	font-size: 12px;
+	line-height: 20px
+}
+#time_list .ol-r h3 {
+	font-weight: 400;
+	color: #212121;
+	line-height: 16px
+}
+#time_list .ol-r .r-price {
+	color: #999;
+	line-height: 14px
+}
+#time_list .ol-r .r-btn {
+	margin-top: 10px
+}
+#time_list .ol-r .r-btn a {
+	display: inline-block;
+	margin-right: 10px
+}
+.logis-detail-content .title{
+	font-weight:bold;
+}
+.logis-detail-content .name{
+	color:#a1a4b8;
+}
+.logis-detail-keynode .name{
+	color:#E9E9E9	
+}

@@ -1,0 +1,83 @@
+
+<div class="panel mi-box">
+<div class="table-tools clearfix ">
+<div class="float-left">
+<form method="post" action="{url()}">
+  <div class="form-inline">
+    <div class="form-group">
+      <div class="field">
+        <input type="text" class="input" id="keyword" name="keyword" size="20" value="{$keyword}" placeholder="关键词">
+        时间：
+        <input type="text" class="input js-day" id="bg_time" name="bg_time" size="10" value="{$_REQUEST['bg_time']}" placeholder="开始日期">
+        -
+        <input type="text" class="input js-day" id="end_time" name="end_time" size="10" value="{$_REQUEST['end_time']}" placeholder="截止日期">
+        <!--if{$_REQUEST['no_pay']=='1'}-->
+        <input name="no_pay" type="checkbox" value="1" checked>
+        <!--{else}-->
+        <input name="no_pay" type="checkbox" value="1">
+        <!--{/if}-->
+        显示未支付
+      </div>
+    </div>
+    <div class="form-button">
+      <button class="button bg-green" type="submit">搜索</button>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+<div class="panel-foot table-foot clearfix">{$page}</div>
+<form method="post">
+<div class="table-responsive">
+  <table class="table">
+    <tr>
+      <td width="150"><strong>合计</strong>(含后续翻页)</td>
+      <td class="text-right">总金额：￥{$total}</td>
+    </tr>
+  </table>
+  <table id="table" class="table table-hover ">
+    <tbody>
+      <tr>
+        <th width="180">充值单号</th>
+        <th width="*">客户/操作人</th>
+        <th width="*">详情</th>
+      </tr>
+      <!--loop{$list as $vo}-->
+      <tr>
+        <td>{high_light($vo.order_no, $keyword)}</td>
+        <td>
+          <span class="text-gray">客户：</span>{$vo.company}<br>
+          <span class="text-gray">员工：</span>{$vo.name}
+        </td>
+        <td>
+          <span class="text-gray">金额：</span>￥{$vo.money}<br>
+          <span class="text-gray">时间：</span>{date('Y-m-d H:i:s', $vo['create_time'])}<br>
+          <span class="text-gray">方式：</span>微信<br>
+          <!--if{$vo.pay_time>0}-->
+          <span class="text-gray">单号：</span>{$vo.pay_id}<br>
+          <span class="text-gray">支付：</span>{date('Y-m-d H:i:s', $vo['pay_time'])}<br>
+          <span class="text-gray">实付：</span>￥{$vo.pay_amount}
+          <!--{else}-->
+          <span class="text-dot">未支付</span>
+          <!--{/if}-->
+        </td>
+      </tr>
+      <!--{/loop}-->
+    </tbody>
+  </table>
+  <table class="table">
+    <tr>
+      <td width="150"><strong>合计</strong>(含后续翻页)</td>
+      <td class="text-right">总金额：￥{$total}</td>
+    </tr>
+  </table>
+</div>
+</form>
+<div class="panel-foot table-foot clearfix">{$page}</div>
+</div>
+
+<script>
+Do.ready('base',function() {
+	$('.js-day').miTime({timepicker: false, format: 'Y-m-d'});
+});
+</script>

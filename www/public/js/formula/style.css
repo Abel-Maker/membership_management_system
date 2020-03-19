@@ -1,0 +1,130 @@
+/*
+@charset "utf-8";
+body {
+	margin: 10px;
+	padding: 0px;
+	font: 12px "宋体",Tahoma,sans-serif;
+	text-align: center;
+	background: #FFFFFF;
+}
+*/
+#formula-box {
+	background: #F0F5FA;
+	border: 1px solid #C2CFDF;
+	width: 600px;
+}
+
+#formula-box td {
+	line-height:20px;
+}
+#formula-box img {
+	border:0px;
+}
+#formula-box A:link {
+	color:#F30;
+    text-decoration: none;
+}
+#formula-box a:visited {
+	font-size:12px
+	text-decoration: none;
+	color:#F30;
+}
+#formula-box a:hover {
+	font-size: 12px;
+	color: #0062AA;
+	text-decoration: underline;
+}
+#formula-box a:active {
+	font-size: 12px;
+	color:#F30;
+}
+#formula-box h1 {
+	font: bold 28px "宋体";
+	color: #222222;
+	margin: 6px;
+	padding: 0px;
+}
+
+.ans_normal {
+	background: #F0F5FA;
+	height: 28px;
+	padding: 3px;
+	margin: 6px;
+	border: 1px solid #8394B2;
+}
+.ans_error {
+	background: #F4E7EA;
+	height: 20px;
+	padding: 3px;
+	margin: 6px;
+	border: 1px solid #986265;
+}
+#expression input{
+	font: 14px "宋体",Tahoma,sans-serif;
+	color: #222222;
+	background: #F0F5FA;
+	height: 16px;
+	width: 98%;
+	padding: 3px;
+	margin: 3px 0px 6px 0px;
+	border-top: 1px solid #8394B2;
+	border-right: 1px none #8394B2;
+	border-bottom: 1px solid #8394B2;
+	border-left: 1px none #8394B2;
+}
+#function {
+	display:inline;
+}
+#function ul{
+	margin: 0px;
+	padding: 0px;
+	border-style: none;
+	float: left;
+}
+#function li{
+	margin: 3px 3px 3px 3px;
+	padding: 2px;
+	border: 1px solid #8394B2;
+	list-style: none;
+	width: 45px;
+	cursor: pointer;
+	text-align: center;
+}
+#function ul.op li{
+	width: 69px;
+}
+#keyboard {
+	font-size: 12px;
+	margin: 3px;
+	padding: 4px 0px 0px;
+	border-top: 1px solid #8394B2;
+	border-right: 1px none #8394B2;
+	border-bottom: 1px none #8394B2;
+	border-left: 1px none #8394B2;	
+}
+
+.clear{
+	clear:both;	
+}
+#b_bl {
+	width:100%;
+}
+#b_bl ul{
+	margin: 0px;
+	padding: 0px;
+	border-style: none;
+	float: left;
+}
+#b_bl li{
+	margin: 3px 3px 3px 3px;
+	padding: 2px;
+	border: 1px solid #8394B2;
+	list-style: none;
+	width: 45px;
+	cursor: pointer;
+	float:left;
+	text-align: center;
+}
+#b_bl ul.op li{
+	width: 69px;
+}

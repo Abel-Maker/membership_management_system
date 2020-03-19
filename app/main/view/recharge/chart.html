@@ -1,0 +1,72 @@
+<!--[if lte IE 8]>
+<script src="__PUBLIC__/lib/js/chart/excanvas.compiled.js"></script>
+<![endif]-->
+<div class="table-tools clearfix ">
+  <div class="float-left">
+    <form id="form" method="post" action="{url()}">
+      <div class="form-inline">
+        <div class="form-group">
+          <div class="field">
+            <select name="year" class="input">
+              <?php for($i=2018;$i<=date('Y');$i++):?>
+              <option value="{$i}"<?php if($i==$year):?> selected="selected"<?php endif;?>>{$i}</option>
+              <?php endfor;?>
+            </select>年
+            <select name="month" class="input">
+              <?php for($i=1;$i<=12;$i++):?>
+              <option value="{str_pad($i, 2, '0', STR_PAD_LEFT)}"<?php if($i==$month):?> selected="selected"<?php endif;?>>{str_pad($i, 2, '0', STR_PAD_LEFT)}</option>
+              <?php endfor;?>
+            </select>月
+          </div>
+        </div>
+        <div class="form-button">
+          <button class="button bg-green" type="submit">搜索</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="panel mi-box">
+  <div class="panel-head clearfix">
+    <div class="float-left">充值金额 </div>
+    <div class="float-right">
+      <span class="tag bg-yellow">充值金额</span>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div style="height:200px;">
+      <canvas id="chart_amount"></canvas>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="panel mi-box">
+  <div class="panel-head clearfix">
+    <div class="float-left">充值次数 </div>
+    <div class="float-right">
+      <span class="tag bg-blue">充值次数</span>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div style="height:200px;">
+      <canvas id="chart_num"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+    Do.ready('base', function () {
+        var data = {$jsonArray1};
+        $("#chart_amount").miChart({
+            data: data
+        });
+
+        var data = {$jsonArray2};
+        $("#chart_num").miChart({
+            data: data
+        });
+
+    });
+</script>
